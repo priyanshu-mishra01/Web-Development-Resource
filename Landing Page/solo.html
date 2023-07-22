@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Practice - Speed Typing Game</title>
+    <style>
+
+     
+
+     .container {
+        margin-top: 500px;
+       width: 80vmin;
+       padding: 50px 30px;
+       background-color: #ffffff;
+       position: absolute;
+       transform: translate(-50%, -50%);
+       top: 50%;
+       left: 50%;
+       border-radius: 10px;
+       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+     }
+     .stats {
+       text-align: right;
+       font-size: 18px;
+       margin-bottom: 30px;
+     }
+     .stats span {
+       font-weight: 600;
+     }
+     #quote {
+       text-align: justify;
+       margin: 50px 0 30px 0;
+     }
+     textarea {
+       resize: none;
+       width: 100%;
+       border-radius: 5px;
+       padding: 10px 5px;
+       font-size: 16px;
+     }
+     .btn {
+       float: right;
+       margin-top: 20px;
+       background-color: #3066f6;
+       color: #ffffff;
+       border: none;
+       padding: 10px 30px;
+       border-radius: 5px;
+       font-size: 18px;
+     }
+     .result {
+       margin-top: 40px;
+       display: none;
+     }
+     .result h3 {
+       text-align: center;
+       margin-bottom: 20px;
+       font-size: 22px;
+     }
+     .wrapper {
+       display: flex;
+       justify-content: space-around;
+     }
+     .wrapper span {
+       font-weight: 600;
+     }
+     .success {
+       color: #44b267;
+     }
+     .fail {
+       color: #e81c4e;
+     }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cont {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .difficulty-select,
+        .time-duration {
+            text-align: left;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .difficulty-select label,
+        .time-duration label {
+            margin-right: 10px;
+        }
+
+        button {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .typing-challenge,
+        #input-field {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #007BFF;
+            border-radius: 5px;
+            width: 0%;
+        }
+
+        .time-left {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Speed Typing Game</h1>
+        <p>Test and Improve Your Typing Skills!</p>
+    </header>
+    <div class="cont">
+        <h2>Solo Practice:</h2>
+        <div class="difficulty-select">
+            <h3>Select the Difficulty Level:</h3>
+            <label>
+                <input type="radio" name="difficulty" value="easy" checked> Easy
+            </label>
+            <label>
+                <input type="radio" name="difficulty" value="medium"> Medium
+            </label>
+            <label>
+                <input type="radio" name="difficulty" value="hard"> Hard
+            </label>
+        </div>
+        <div class="time-duration">
+            <h3>Select the Time Duration:</h3>
+            <label>
+                <input type="radio" name="duration" value="60"> 1 minute
+            </label>
+            <label>
+                <input type="radio" name="duration" value="120" > 2 minute
+            </label>
+            <label>
+                <input type="radio" name="duration" value="300"> 5 minute
+            </label>
+        </div>
+        <button onclick="displayRadioValue()">Start Practice</button>
+        <br>
+       
+        <div class="container">
+            <div class="stats">
+              <p>Time: <span id="timer">0s</span></p>
+              <p>Mistakes: <span id="mistakes">0</span></p>
+            </div>
+            <div
+              id="quote"
+              onmousedown="return false"
+              onselectstart="return false"
+            ></div>
+            <textarea
+              rows="3"
+              id="quote-input"
+              placeholder="Type here when the test starts.."
+            ></textarea>
+            <button class="btn" id="start-test" onclick="startTest()">Start Test</button>
+            <button class="btn" id="stop-test" onclick="displayResult()">Stop Test</button>
+            <div class="result">
+              <h3>Result</h3>
+              <div class="wrapper">
+                <p>Accuracy: <span id="accuracy"></span></p>
+                <p>Speed: <span id="wpm"></span></p>
+              </div>
+            </div>
+          </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
